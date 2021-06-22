@@ -1,10 +1,10 @@
 package com.tt.demo.server;
 
-import com.tt.demo.server.codec.OrderFrameDecoder;
-import com.tt.demo.server.codec.OrderFrameEncoder;
-import com.tt.demo.server.codec.OrderProtocolDecoder;
-import com.tt.demo.server.codec.OrderProtocolEncoder;
-import com.tt.demo.server.handler.OrderServerProcessHandler;
+import com.tt.demo.server.codec.TvFrameDecoder;
+import com.tt.demo.server.codec.TvFrameEncoder;
+import com.tt.demo.server.codec.TvProtocolDecoder;
+import com.tt.demo.server.codec.TvProtocolEncoder;
+import com.tt.demo.server.handler.TvServerProcessHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -14,7 +14,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import javafx.print.PageLayout;
 
 /**
  * @author hansiyuan
@@ -40,12 +39,12 @@ public class Server {
                 @Override
                 protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                     ChannelPipeline pipeline = nioSocketChannel.pipeline();
-                    pipeline.addLast(new OrderFrameDecoder());
-                    pipeline.addLast(new OrderFrameEncoder());
-                    pipeline.addLast(new OrderProtocolEncoder());
-                    pipeline.addLast(new OrderProtocolDecoder());
+                    pipeline.addLast(new TvFrameDecoder());
+                    pipeline.addLast(new TvFrameEncoder());
+                    pipeline.addLast(new TvProtocolEncoder());
+                    pipeline.addLast(new TvProtocolDecoder());
                     pipeline.addLast(new LoggingHandler(LogLevel.INFO));
-                    pipeline.addLast(new OrderServerProcessHandler());
+                    pipeline.addLast(new TvServerProcessHandler());
                 }
             });
             ChannelFuture channelFuture = serverBootstrap.bind(8090).sync();

@@ -1,9 +1,7 @@
 package com.tt.demo.client;
 
 import com.tt.demo.client.codec.*;
-import com.tt.demo.common.RequestMessage;
-import com.tt.demo.common.order.OrderOperation;
-import com.tt.demo.util.IdUtil;
+import com.tt.demo.common.tv.TvOperation;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -35,17 +33,17 @@ public class ClientV1 {
             @Override
             protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                 ChannelPipeline pipeline = nioSocketChannel.pipeline();
-                pipeline.addLast(new OrderFrameDecoder());
-                pipeline.addLast(new OrderFrameEncoder());
-                pipeline.addLast(new OrderProtocolEncoder());
-                pipeline.addLast(new OrderProtocolDecoder());
+                pipeline.addLast(new TvFrameDecoder());
+                pipeline.addLast(new TvFrameEncoder());
+                pipeline.addLast(new TvProtocolEncoder());
+                pipeline.addLast(new TvProtocolDecoder());
                 pipeline.addLast(new OperationToRequestMessageEncoder());
                 pipeline.addLast(new LoggingHandler(LogLevel.INFO));
             }
         });
         ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 8090).sync();
 
-        channelFuture.channel().writeAndFlush(new OrderOperation(1001, "tudou"));
+        channelFuture.channel().writeAndFlush(new TvOperation(1001, "tudou"));
 
         channelFuture.channel().closeFuture().get();
     }

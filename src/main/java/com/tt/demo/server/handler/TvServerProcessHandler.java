@@ -11,7 +11,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @author hansiyuan
  * @date 2021年06月19日 18:05
  */
-public class OrderServerProcessHandler extends SimpleChannelInboundHandler<RequestMessage> {
+public class TvServerProcessHandler extends SimpleChannelInboundHandler<RequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, RequestMessage requestMessage) throws Exception {
         Operation operation = requestMessage.getMessageBody();

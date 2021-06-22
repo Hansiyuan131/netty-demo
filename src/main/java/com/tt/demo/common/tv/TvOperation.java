@@ -1,4 +1,4 @@
-package com.tt.demo.common.order;
+package com.tt.demo.common.tv;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.tt.demo.common.Operation;
@@ -16,23 +16,23 @@ import java.util.concurrent.TimeUnit;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Slf4j
-public class OrderOperation extends Operation {
+public class TvOperation extends Operation {
 
     private int tableId;
     private String dish;
 
-    public OrderOperation(int tableId, String dish) {
+    public TvOperation(int tableId, String dish) {
         this.tableId = tableId;
         this.dish = dish;
     }
 
     @Override
     public OperationResult execute() {
-        log.info("order's executing startup with orderRequest: " + toString());
-        //execute order logic
+        log.info("TV相关操作开始执行 " + toString());
+        //execute tv logic
         Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
-        log.info("order's executing complete");
-        OrderOperationResult orderResponse = new OrderOperationResult(tableId, dish, true);
-        return orderResponse;
+        log.info("TV相关操作执行完成");
+        TvOperationResult tvResponse = new TvOperationResult(tableId, dish, true);
+        return tvResponse;
     }
 }

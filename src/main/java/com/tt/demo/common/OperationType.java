@@ -4,8 +4,8 @@ import com.tt.demo.common.auth.AuthOperation;
 import com.tt.demo.common.auth.AuthOperationResult;
 import com.tt.demo.common.keepalive.KeepaliveOperation;
 import com.tt.demo.common.keepalive.KeepaliveOperationResult;
-import com.tt.demo.common.order.OrderOperation;
-import com.tt.demo.common.order.OrderOperationResult;
+import com.tt.demo.common.tv.TvOperation;
+import com.tt.demo.common.tv.TvOperationResult;
 
 import java.util.function.Predicate;
 
@@ -26,9 +26,9 @@ public enum OperationType {
      */
     KEEPALIVE(2, KeepaliveOperation.class, KeepaliveOperationResult.class),
     /**
-     * 订单业务操作
+     * TV业务操作
      */
-    ORDER(3, OrderOperation.class, OrderOperationResult.class);
+    ORDER(3, TvOperation.class, TvOperationResult.class);
 
     private final int opCode;
     private final Class<? extends Operation> operationClazz;

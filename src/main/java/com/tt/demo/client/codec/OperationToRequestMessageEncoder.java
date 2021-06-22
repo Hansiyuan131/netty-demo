@@ -2,7 +2,6 @@ package com.tt.demo.client.codec;
 
 import com.tt.demo.common.Operation;
 import com.tt.demo.common.RequestMessage;
-import com.tt.demo.common.order.OrderOperation;
 import com.tt.demo.util.IdUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;

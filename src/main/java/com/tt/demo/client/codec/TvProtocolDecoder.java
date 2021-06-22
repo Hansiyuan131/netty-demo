@@ -14,7 +14,7 @@ import java.util.List;
  * @author hansiyuan
  * @date 2021年06月19日 17:34
  */
-public class OrderProtocolDecoder extends MessageToMessageDecoder<ByteBuf> {
+public class TvProtocolDecoder extends MessageToMessageDecoder<ByteBuf> {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
         // 对请求消息进行解码操作

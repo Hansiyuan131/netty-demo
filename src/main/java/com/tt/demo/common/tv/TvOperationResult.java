@@ -1,4 +1,4 @@
-package com.tt.demo.common.order;
+package com.tt.demo.common.tv;
 
 import com.tt.demo.common.OperationResult;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class OrderOperationResult extends OperationResult {
+public class TvOperationResult extends OperationResult {
     private final int tableId;
     private final String dish;
     private final boolean complete;

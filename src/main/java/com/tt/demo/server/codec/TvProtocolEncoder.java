@@ -11,7 +11,7 @@ import java.util.List;
  * @author hansiyuan
  * @date 2021年06月19日 18:03
  */
-public class OrderProtocolEncoder extends MessageToMessageEncoder<ResponseMessage> {
+public class TvProtocolEncoder extends MessageToMessageEncoder<ResponseMessage> {
     @Override
     protected void encode(ChannelHandlerContext ctx, ResponseMessage responseMessage, List<Object> list) throws Exception {
         // 分配ByteBuf

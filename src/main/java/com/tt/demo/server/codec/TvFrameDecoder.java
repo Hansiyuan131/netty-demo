@@ -1,4 +1,4 @@
-package com.tt.demo.client.codec;
+package com.tt.demo.server.codec;
 
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
@@ -8,8 +8,8 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
  * @author hansiyuan
  * @date 2021年06月19日 17:22
  */
-public class OrderFrameDecoder extends LengthFieldBasedFrameDecoder {
-    public OrderFrameDecoder() {
+public class TvFrameDecoder extends LengthFieldBasedFrameDecoder {
+    public TvFrameDecoder() {
         super(Integer.MAX_VALUE, 0, 2, 0, 2);
     }
 }
